@@ -19,7 +19,7 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    background: transparent; /* semi-transparent black */
+ /*   background: transparent; /* semi-transparent black */
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@ a:hover {
 .nav-button {
     padding: 6px 10px;
     font-size: 0.9em;
-    background-color: rgba(255, 255, 255, 0.1);
+/*    background-color: rgba(255, 255, 255, 0.1);*/
     color: white;
     border: none;
     border-radius: 4px;

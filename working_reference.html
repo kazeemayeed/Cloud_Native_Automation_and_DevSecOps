@@ -3,12 +3,1643 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DevSecOps Code Snippets & References</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            background: #0a0e27;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #64b5f6;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .subsection {
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .subsection h3 {
+            color: #4ecdc4;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .code-block {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: #4ecdc4;
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .code {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            color: #f8f8f2;
+            white-space: pre;
+            line-height: 1.4;
+        }
+
+        .comment {
+            color: #6272a4;
+            font-style: italic;
+        }
+
+        .keyword {
+            color: #ff79c6;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #f1fa8c;
+        }
+
+        .number {
+            color: #bd93f9;
+        }
+
+        .function {
+            color: #50fa7b;
+        }
+
+        .variable {
+            color: #8be9fd;
+        }
+
+        .operator {
+            color: #ff6b6b;
+        }
+
+        .description {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            border-left: 3px solid #64b5f6;
+        }
+
+        .best-practice {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid #4caf50;
+        }
+
+        .warning {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid #ff6b6b;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: block;
+            color: #64b5f6;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 2px 0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .nav-item:hover {
+            background: rgba(100, 181, 246, 0.2);
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .reference-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reference-title {
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .reference-link {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        .reference-link:hover {
+            text-decoration: underline;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+            .reference-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .code-block {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>This is the Sample Page</h1>
-    <p>Here you can show examples, demos, or anything else.</p>
-    <a href="index.html">Back to Landing</a>
-</body>
-</html>
+    <div class="nav-menu">
+        <a href="#pipeline" class="nav-item">CI/CD Pipeline</a>
+        <a href="#infrastructure" class="nav-item">Infrastructure as Code</a>
+        <a href="#security" class="nav-item">Security Automation</a>
+        <a href="#monitoring" class="nav-item">Monitoring</a>
+        <a href="#kubernetes" class="nav-item">Kubernetes Security</a>
+        <a href="#compliance" class="nav-item">Compliance</a>
+        <a href="#tools" class="nav-item">Tools & Resources</a>
+        <a href="index.html">Back to Landing</a>
+    </div>
+
+    <div class="container">
+        <h1 style="text-align: center; color: #64b5f6; margin-bottom: 40px; font-size: 2.5rem;">
+            DevSecOps Code Snippets & References
+        </h1>
+
+        <!-- CI/CD Pipeline Section -->
+        <div class="section" id="pipeline">
+            <h2 class="section-title">🚀 CI/CD Pipeline with Security Integration</h2>
+            
+            <div class="subsection">
+                <h3>GitHub Actions DevSecOps Pipeline</h3>
+                <div class="description">
+                    Complete CI/CD pipeline with integrated security scanning, SAST, DAST, and container security.
+                </div>
+                
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># .github/workflows/devsecops-pipeline.yml</span>
+<span class="keyword">name:</span> <span class="string">DevSecOps Pipeline</span>
+
+<span class="keyword">on:</span>
+  <span class="keyword">push:</span>
+    <span class="keyword">branches:</span> [<span class="string">main</span>, <span class="string">develop</span>]
+  <span class="keyword">pull_request:</span>
+    <span class="keyword">branches:</span> [<span class="string">main</span>]
+
+<span class="keyword">jobs:</span>
+  <span class="keyword">security-scan:</span>
+    <span class="keyword">runs-on:</span> <span class="string">ubuntu-latest</span>
+    <span class="keyword">steps:</span>
+      - <span class="keyword">name:</span> <span class="string">Checkout code</span>
+        <span class="keyword">uses:</span> <span class="string">actions/checkout@v4</span>
+
+      - <span class="keyword">name:</span> <span class="string">Secret Scanning</span>
+        <span class="keyword">uses:</span> <span class="string">trufflesecurity/trufflehog@main</span>
+        <span class="keyword">with:</span>
+          <span class="keyword">path:</span> <span class="string">./</span>
+          <span class="keyword">base:</span> <span class="string">main</span>
+          <span class="keyword">head:</span> <span class="string">HEAD</span>
+
+      - <span class="keyword">name:</span> <span class="string">SAST with SonarQube</span>
+        <span class="keyword">uses:</span> <span class="string">sonarqube-quality-gate-action@master</span>
+        <span class="keyword">env:</span>
+          <span class="keyword">SONAR_TOKEN:</span> <span class="variable">${{ secrets.SONAR_TOKEN }}</span>
+
+      - <span class="keyword">name:</span> <span class="string">Dependency Check</span>
+        <span class="keyword">uses:</span> <span class="string">dependency-check/Dependency-Check_Action@main</span>
+        <span class="keyword">with:</span>
+          <span class="keyword">project:</span> <span class="string">my-app</span>
+          <span class="keyword">path:</span> <span class="string">.</span>
+          <span class="keyword">format:</span> <span class="string">HTML</span>
+
+  <span class="keyword">build-and-scan:</span>
+    <span class="keyword">needs:</span> <span class="string">security-scan</span>
+    <span class="keyword">runs-on:</span> <span class="string">ubuntu-latest</span>
+    <span class="keyword">steps:</span>
+      - <span class="keyword">name:</span> <span class="string">Build Docker Image</span>
+        <span class="keyword">run:</span> |
+          <span class="function">docker build</span> <span class="operator">-t</span> <span class="variable">myapp:${{ github.sha }}</span> <span class="operator">.</span>
+
+      - <span class="keyword">name:</span> <span class="string">Container Security Scan</span>
+        <span class="keyword">uses:</span> <span class="string">aquasecurity/trivy-action@master</span>
+        <span class="keyword">with:</span>
+          <span class="keyword">image-ref:</span> <span class="string">myapp:${{ github.sha }}</span>
+          <span class="keyword">format:</span> <span class="string">sarif</span>
+          <span class="keyword">output:</span> <span class="string">trivy-results.sarif</span>
+
+      - <span class="keyword">name:</span> <span class="string">Upload Scan Results</span>
+        <span class="keyword">uses:</span> <span class="string">github/codeql-action/upload-sarif@v2</span>
+        <span class="keyword">with:</span>
+          <span class="keyword">sarif_file:</span> <span class="string">trivy-results.sarif</span>
+
+  <span class="keyword">deploy:</span>
+    <span class="keyword">needs:</span> [<span class="string">security-scan</span>, <span class="string">build-and-scan</span>]
+    <span class="keyword">runs-on:</span> <span class="string">ubuntu-latest</span>
+    <span class="keyword">if:</span> <span class="string">github.ref == 'refs/heads/main'</span>
+    <span class="keyword">steps:</span>
+      - <span class="keyword">name:</span> <span class="string">Deploy to Production</span>
+        <span class="keyword">run:</span> |
+          <span class="comment"># Deploy with security policies enforced</span>
+          <span class="function">kubectl apply</span> <span class="operator">-f</span> <span class="variable">k8s/security-policies.yaml</span>
+          <span class="function">kubectl apply</span> <span class="operator">-f</span> <span class="variable">k8s/deployment.yaml</span>
+
+      - <span class="keyword">name:</span> <span class="string">DAST Scan</span>
+        <span class="keyword">uses:</span> <span class="string">zaproxy/action-full-scan@v0.7.0</span>
+        <span class="keyword">with:</span>
+          <span class="keyword">target:</span> <span class="string">https://myapp.example.com</span>
+</span>
+                </div>
+                
+                <div class="best-practice">
+                    <strong>Best Practice:</strong> This pipeline implements "shift-left" security by running security scans early in the development process, preventing vulnerabilities from reaching production.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Security Gates Configuration</h3>
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># security-gates.yml - Define security thresholds</span>
+<span class="keyword">security_gates:</span>
+  <span class="keyword">sast:</span>
+    <span class="keyword">high_severity_limit:</span> <span class="number">0</span>
+    <span class="keyword">medium_severity_limit:</span> <span class="number">5</span>
+    <span class="keyword">low_severity_limit:</span> <span class="number">20</span>
+  
+  <span class="keyword">dependency_check:</span>
+    <span class="keyword">critical_cve_limit:</span> <span class="number">0</span>
+    <span class="keyword">high_cve_limit:</span> <span class="number">2</span>
+  
+  <span class="keyword">container_scan:</span>
+    <span class="keyword">critical_vulnerabilities:</span> <span class="number">0</span>
+    <span class="keyword">high_vulnerabilities:</span> <span class="number">3</span>
+
+<span class="keyword">notification:</span>
+  <span class="keyword">slack_channel:</span> <span class="string">#security-alerts</span>
+  <span class="keyword">email:</span> <span class="string">security-team@company.com</span>
+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Infrastructure as Code Section -->
+        <div class="section" id="infrastructure">
+            <h2 class="section-title">🏗️ Infrastructure as Code with Security</h2>
+            
+            <div class="subsection">
+                <h3>Terraform with Security Best Practices</h3>
+                <div class="description">
+                    Secure cloud infrastructure deployment with policy enforcement and compliance checking.
+                </div>
+                
+                <div class="code-block" data-lang="HCL">
+<span class="code"><span class="comment"># main.tf - Secure AWS EKS Cluster</span>
+<span class="keyword">terraform</span> {
+  <span class="keyword">required_version</span> = <span class="string">">= 1.0"</span>
+  <span class="keyword">required_providers</span> {
+    <span class="keyword">aws</span> = {
+      <span class="keyword">source</span>  = <span class="string">"hashicorp/aws"</span>
+      <span class="keyword">version</span> = <span class="string">"~> 5.0"</span>
+    }
+  }
+  
+  <span class="keyword">backend</span> <span class="string">"s3"</span> {
+    <span class="keyword">bucket</span>         = <span class="string">"my-terraform-state"</span>
+    <span class="keyword">key</span>            = <span class="string">"infrastructure/terraform.tfstate"</span>
+    <span class="keyword">region</span>         = <span class="string">"us-west-2"</span>
+    <span class="keyword">encrypt</span>        = <span class="keyword">true</span>
+    <span class="keyword">dynamodb_table</span> = <span class="string">"terraform-locks"</span>
+  }
+}
+
+<span class="comment"># Data source for availability zones</span>
+<span class="keyword">data</span> <span class="string">"aws_availability_zones"</span> <span class="string">"available"</span> {
+  <span class="keyword">state</span> = <span class="string">"available"</span>
+}
+
+<span class="comment"># VPC with security groups</span>
+<span class="keyword">module</span> <span class="string">"vpc"</span> {
+  <span class="keyword">source</span>  = <span class="string">"terraform-aws-modules/vpc/aws"</span>
+  <span class="keyword">version</span> = <span class="string">"~> 5.0"</span>
+
+  <span class="keyword">name</span> = <span class="variable">var.cluster_name</span>
+  <span class="keyword">cidr</span> = <span class="string">"10.0.0.0/16"</span>
+
+  <span class="keyword">azs</span>             = <span class="function">slice</span>(<span class="variable">data.aws_availability_zones.available.names</span>, <span class="number">0</span>, <span class="number">3</span>)
+  <span class="keyword">private_subnets</span> = [<span class="string">"10.0.1.0/24"</span>, <span class="string">"10.0.2.0/24"</span>, <span class="string">"10.0.3.0/24"</span>]
+  <span class="keyword">public_subnets</span>  = [<span class="string">"10.0.101.0/24"</span>, <span class="string">"10.0.102.0/24"</span>, <span class="string">"10.0.103.0/24"</span>]
+
+  <span class="keyword">enable_nat_gateway</span>   = <span class="keyword">true</span>
+  <span class="keyword">enable_vpn_gateway</span>   = <span class="keyword">false</span>
+  <span class="keyword">enable_dns_hostnames</span> = <span class="keyword">true</span>
+  <span class="keyword">enable_dns_support</span>   = <span class="keyword">true</span>
+
+  <span class="comment"># Security: Enable VPC Flow Logs</span>
+  <span class="keyword">enable_flow_log</span>                      = <span class="keyword">true</span>
+  <span class="keyword">create_flow_log_cloudwatch_iam_role</span>  = <span class="keyword">true</span>
+  <span class="keyword">create_flow_log_cloudwatch_log_group</span> = <span class="keyword">true</span>
+
+  <span class="keyword">tags</span> = {
+    <span class="keyword">Environment</span> = <span class="variable">var.environment</span>
+    <span class="keyword">Project</span>     = <span class="string">"DevSecOps-Demo"</span>
+    <span class="keyword">ManagedBy</span>   = <span class="string">"Terraform"</span>
+  }
+}
+
+<span class="comment"># EKS Cluster with security configurations</span>
+<span class="keyword">module</span> <span class="string">"eks"</span> {
+  <span class="keyword">source</span>  = <span class="string">"terraform-aws-modules/eks/aws"</span>
+  <span class="keyword">version</span> = <span class="string">"~> 19.0"</span>
+
+  <span class="keyword">cluster_name</span>    = <span class="variable">var.cluster_name</span>
+  <span class="keyword">cluster_version</span> = <span class="string">"1.28"</span>
+
+  <span class="keyword">vpc_id</span>                         = <span class="variable">module.vpc.vpc_id</span>
+  <span class="keyword">subnet_ids</span>                     = <span class="variable">module.vpc.private_subnets</span>
+  <span class="keyword">control_plane_subnet_ids</span>       = <span class="variable">module.vpc.private_subnets</span>
+
+  <span class="comment"># Security: Enable encryption and logging</span>
+  <span class="keyword">cluster_encryption_config</span> = {
+    <span class="keyword">provider_key_arn</span> = <span class="variable">aws_kms_key.eks.arn</span>
+    <span class="keyword">resources</span>        = [<span class="string">"secrets"</span>]
+  }
+
+  <span class="keyword">cluster_enabled_log_types</span> = [
+    <span class="string">"api"</span>, <span class="string">"audit"</span>, <span class="string">"authenticator"</span>, <span class="string">"controllerManager"</span>, <span class="string">"scheduler"</span>
+  ]
+
+  <span class="comment"># Security: Restrict API server access</span>
+  <span class="keyword">cluster_endpoint_private_access</span> = <span class="keyword">true</span>
+  <span class="keyword">cluster_endpoint_public_access</span>  = <span class="keyword">true</span>
+  <span class="keyword">cluster_endpoint_public_access_cidrs</span> = [<span class="string">"10.0.0.0/16"</span>]
+
+  <span class="keyword">eks_managed_node_groups</span> = {
+    <span class="keyword">default</span> = {
+      <span class="keyword">instance_types</span> = [<span class="string">"t3.medium"</span>]
+      <span class="keyword">min_size</span>       = <span class="number">2</span>
+      <span class="keyword">max_size</span>       = <span class="number">10</span>
+      <span class="keyword">desired_size</span>   = <span class="number">3</span>
+
+      <span class="comment"># Security: Use latest AMI and enable IMDSv2</span>
+      <span class="keyword">use_latest_ami_release_version</span> = <span class="keyword">true</span>
+      <span class="keyword">metadata_options</span> = {
+        <span class="keyword">http_endpoint</span>               = <span class="string">"enabled"</span>
+        <span class="keyword">http_tokens</span>                 = <span class="string">"required"</span>
+        <span class="keyword">http_put_response_hop_limit</span> = <span class="number">2</span>
+        <span class="keyword">instance_metadata_tags</span>      = <span class="string">"enabled"</span>
+      }
+    }
+  }
+}
+
+<span class="comment"># KMS key for encryption</span>
+<span class="keyword">resource</span> <span class="string">"aws_kms_key"</span> <span class="string">"eks"</span> {
+  <span class="keyword">description</span>             = <span class="string">"EKS Secret Encryption Key"</span>
+  <span class="keyword">deletion_window_in_days</span> = <span class="number">7</span>
+  <span class="keyword">enable_key_rotation</span>     = <span class="keyword">true</span>
+
+  <span class="keyword">tags</span> = {
+    <span class="keyword">Name</span> = <span class="string">"eks-encryption-key"</span>
+  }
+}
+</span>
+                </div>
+
+                <div class="best-practice">
+                    <strong>Security Best Practices Applied:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>✅ Encrypted state backend with DynamoDB locking</li>
+                        <li>✅ VPC Flow Logs enabled for network monitoring</li>
+                        <li>✅ EKS secrets encrypted with customer-managed KMS keys</li>
+                        <li>✅ Control plane logging enabled for audit trails</li>
+                        <li>✅ IMDSv2 enforced on EC2 instances</li>
+                        <li>✅ Private subnets for worker nodes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Policy as Code with Open Policy Agent (OPA)</h3>
+                <div class="code-block" data-lang="Rego">
+<span class="code"><span class="comment"># security-policies.rego - Kubernetes security policies</span>
+<span class="keyword">package</span> <span class="variable">kubernetes.security</span>
+
+<span class="comment"># Deny containers running as root</span>
+<span class="keyword">deny</span>[<span class="variable">msg</span>] {
+  <span class="variable">input.kind</span> <span class="operator">==</span> <span class="string">"Pod"</span>
+  <span class="variable">input.spec.securityContext.runAsUser</span> <span class="operator">==</span> <span class="number">0</span>
+  <span class="variable">msg</span> := <span class="string">"Container must not run as root user"</span>
+}
+
+<span class="comment"># Require resource limits</span>
+<span class="keyword">deny</span>[<span class="variable">msg</span>] {
+  <span class="variable">input.kind</span> <span class="operator">==</span> <span class="string">"Pod"</span>
+  <span class="variable">container</span> := <span class="variable">input.spec.containers[_]</span>
+  <span class="keyword">not</span> <span class="variable">container.resources.limits</span>
+  <span class="variable">msg</span> := <span class="function">sprintf</span>(<span class="string">"Container %s missing resource limits"</span>, [<span class="variable">container.name</span>])
+}
+
+<span class="comment"># Require network policies</span>
+<span class="keyword">deny</span>[<span class="variable">msg</span>] {
+  <span class="variable">input.kind</span> <span class="operator">==</span> <span class="string">"Deployment"</span>
+  <span class="keyword">not</span> <span class="variable">input.metadata.labels.networkPolicy</span>
+  <span class="variable">msg</span> := <span class="string">"Deployment must specify network policy label"</span>
+}
+
+<span class="comment"># Deny privileged containers</span>
+<span class="keyword">deny</span>[<span class="variable">msg</span>] {
+  <span class="variable">input.kind</span> <span class="operator">==</span> <span class="string">"Pod"</span>
+  <span class="variable">container</span> := <span class="variable">input.spec.containers[_]</span>
+  <span class="variable">container.securityContext.privileged</span> <span class="operator">==</span> <span class="keyword">true</span>
+  <span class="variable">msg</span> := <span class="string">"Privileged containers are not allowed"</span>
+}
+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Automation Section -->
+        <div class="section" id="security">
+            <h2 class="section-title">🔒 Security Automation Scripts</h2>
+            
+            <div class="subsection">
+                <h3>Automated Security Scanning Script</h3>
+                <div class="code-block" data-lang="Bash">
+<span class="code"><span class="comment">#!/bin/bash</span>
+<span class="comment"># security-scan.sh - Comprehensive security scanning automation</span>
+
+<span class="keyword">set</span> <span class="operator">-e</span>  <span class="comment"># Exit on any error</span>
+
+<span class="comment"># Colors for output</span>
+<span class="variable">RED</span>=<span class="string">'\033[0;31m'</span>
+<span class="variable">GREEN</span>=<span class="string">'\033[0;32m'</span>
+<span class="variable">YELLOW</span>=<span class="string">'\033[1;33m'</span>
+<span class="variable">NC</span>=<span class="string">'\033[0m'</span> <span class="comment"># No Color</span>
+
+<span class="comment"># Configuration</span>
+<span class="variable">SCAN_DIR</span>=<span class="string">"${1:-.}"</span>
+<span class="variable">REPORT_DIR</span>=<span class="string">"security-reports"</span>
+<span class="variable">IMAGE_NAME</span>=<span class="string">"${2:-myapp:latest}"</span>
+
+<span class="function">log_info</span>() {
+    <span class="keyword">echo</span> <span class="operator">-e</span> <span class="string">"${GREEN}[INFO]${NC} $1"</span>
+}
+
+<span class="function">log_warn</span>() {
+    <span class="keyword">echo</span> <span class="operator">-e</span> <span class="string">"${YELLOW}[WARN]${NC} $1"</span>
+}
+
+<span class="function">log_error</span>() {
+    <span class="keyword">echo</span> <span class="operator">-e</span> <span class="string">"${RED}[ERROR]${NC} $1"</span>
+}
+
+<span class="comment"># Create report directory</span>
+<span class="function">setup_reports</span>() {
+    <span class="function">log_info</span> <span class="string">"Setting up report directory..."</span>
+    <span class="function">mkdir</span> <span class="operator">-p</span> <span class="variable">"$REPORT_DIR"</span>
+    <span class="keyword">cd</span> <span class="variable">"$REPORT_DIR"</span>
+}
+
+<span class="comment"># Secret scanning with TruffleHog</span>
+<span class="function">scan_secrets</span>() {
+    <span class="function">log_info</span> <span class="string">"Running secret scanning..."</span>
+    <span class="keyword">if</span> <span class="function">command</span> <span class="operator">-v</span> <span class="variable">trufflehog</span> &> <span class="variable">/dev/null</span>; <span class="keyword">then</span>
+        <span class="function">trufflehog</span> <span class="variable">filesystem</span> <span class="variable">"$SCAN_DIR"</span> <span class="operator">--json</span> > <span class="variable">secrets-report.json</span> <span class="operator">||</span> <span class="keyword">true</span>
+        <span class="function">log_info</span> <span class="string">"Secret scan completed: secrets-report.json"</span>
+    <span class="keyword">else</span>
+        <span class="function">log_warn</span> <span class="string">"TruffleHog not found, skipping secret scan"</span>
+    <span class="keyword">fi</span>
+}
+
+<span class="comment"># SAST scanning with Semgrep</span>
+<span class="function">scan_sast</span>() {
+    <span class="function">log_info</span> <span class="string">"Running SAST scan with Semgrep..."</span>
+    <span class="keyword">if</span> <span class="function">command</span> <span class="operator">-v</span> <span class="variable">semgrep</span> &> <span class="variable">/dev/null</span>; <span class="keyword">then</span>
+        <span class="function">semgrep</span> <span class="operator">--config=auto</span> <span class="variable">"$SCAN_DIR"</span> <span class="operator">--json</span> <span class="operator">--output=sast-report.json</span> <span class="operator">||</span> <span class="keyword">true</span>
+        <span class="function">log_info</span> <span class="string">"SAST scan completed: sast-report.json"</span>
+    <span class="keyword">else</span>
+        <span class="function">log_warn</span> <span class="string">"Semgrep not found, skipping SAST scan"</span>
+    <span class="keyword">fi</span>
+}
+
+<span class="comment"># Dependency vulnerability scanning</span>
+<span class="function">scan_dependencies</span>() {
+    <span class="function">log_info</span> <span class="string">"Running dependency vulnerability scan..."</span>
+    
+    <span class="comment"># Scan package.json if exists</span>
+    <span class="keyword">if</span> [[ <span class="operator">-f</span> <span class="string">"$SCAN_DIR/package.json"</span> ]]; <span class="keyword">then</span>
+        <span class="function">npm audit</span> <span class="operator">--json</span> > <span class="variable">npm-audit.json</span> <span class="number">2>/dev/null</span> <span class="operator">||</span> <span class="keyword">true</span>
+    <span class="keyword">fi</span>
+    
+    <span class="comment"># Scan requirements.txt if exists</span>
+    <span class="keyword">if</span> [[ <span class="operator">-f</span> <span class="string">"$SCAN_DIR/requirements.txt"</span> ]] && <span class="function">command</span> <span class="operator">-v</span> <span class="variable">safety</span> &> <span class="variable">/dev/null</span>; <span class="keyword">then</span>
+        <span class="function">safety check</span> <span class="operator">--json</span> <span class="operator">-r</span> <span class="variable">"$SCAN_DIR/requirements.txt"</span> > <span class="variable">python-safety.json</span> <span class="operator">||</span> <span class="keyword">true</span>
+    <span class="keyword">fi</span>
+    
+    <span class="function">log_info</span> <span class="string">"Dependency scan completed"</span>
+}
+
+<span class="comment"># Container image scanning with Trivy</span>
+<span class="function">scan_container</span>() {
+    <span class="function">log_info</span> <span class="string">"Running container image scan..."</span>
+    <span class="keyword">if</span> <span class="function">command</span> <span class="operator">-v</span> <span class="variable">trivy</span> &> <span class="variable">/dev/null</span>; <span class="keyword">then</span>
+        <span class="function">trivy image</span> <span class="operator">--format json</span> <span class="operator">--output</span> <span class="variable">container-scan.json</span> <span class="variable">"$IMAGE_NAME"</span> <span class="operator">||</span> <span class="keyword">true</span>
+        <span class="function">log_info</span> <span class="string">"Container scan completed: container-scan.json"</span>
+    <span class="keyword">else</span>
+        <span class="function">log_warn</span> <span class="string">"Trivy not found, skipping container scan"</span>
+    <span class="keyword">fi</span>
+}
+
+<span class="comment"># Generate summary report</span>
+<span class="function">generate_summary</span>() {
+    <span class="function">log_info</span> <span class="string">"Generating security summary..."</span>
+    
+    <span class="variable">SUMMARY_FILE</span>=<span class="string">"security-summary.md"</span>
+    
+    <span class="function">cat</span> > <span class="variable">"$SUMMARY_FILE"</span> << <span class="variable">EOF</span>
+<span class="comment"># Security Scan Summary</span>
+
+<span class="comment">## Scan Results</span>
+- **Timestamp**: <span class="variable">$(date)</span>
+- **Scan Directory**: <span class="variable">$SCAN_DIR</span>
+- **Container Image**: <span class="variable">$IMAGE_NAME</span>
+
+<span class="comment">## Reports Generated</span>
+<span class="variable">EOF</span>
+
+    <span class="keyword">for</span> <span class="variable">report</span> <span class="keyword">in</span> <span class="variable">*.json</span>; <span class="keyword">do</span>
+        <span class="keyword">if</span> [[ <span class="operator">-f</span> <span class="variable">"$report"</span> ]]; <span class="keyword">then</span>
+            <span class="function">echo</span> <span class="string">"- $report"</span> >> <span class="variable">"$SUMMARY_FILE"</span>
+        <span class="keyword">fi</span>
+    <span class="keyword">done</span>
+    
+    <span class="function">log_info</span> <span class="string">"Summary generated: $SUMMARY_FILE"</span>
+}
+
+<span class="comment"># Main execution</span>
+<span class="function">main</span>() {
+    <span class="function">log_info</span> <span class="string">"Starting comprehensive security scan..."</span>
+    
+    <span class="function">setup_reports</span>
+    <span class="function">scan_secrets</span>
+    <span class="function">scan_sast</span>
+    <span class="function">scan_dependencies</span>
+    <span class="function">scan_container</span>
+    <span class="function">generate_summary</span>
+    
+    <span class="function">log_info</span> <span class="string">"Security scan completed! Check $REPORT_DIR for results."</span>
+}
+
+<span class="comment"># Run main function</span>
+<span class="function">main</span> <span class="string">"$@"</span>
+</span>
+                </div>
+
+                <div class="warning">
+                    <strong>Security Note:</strong> This script should be integrated into your CI/CD pipeline and configured to fail builds if critical vulnerabilities are found.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Secrets Management with HashiCorp Vault</h3>
+                <div class="code-block" data-lang="Python">
+<span class="code"><span class="comment"># vault_client.py - Secure secrets retrieval</span>
+<span class="keyword">import</span> <span class="variable">hvac</span>
+<span class="keyword">import</span> <span class="variable">os</span>
+<span class="keyword">import</span> <span class="variable">logging</span>
+<span class="keyword">from</span> <span class="variable">typing</span> <span class="keyword">import</span> <span class="variable">Dict, Optional</span>
+
+<span class="function">logging.basicConfig</span>(<span class="variable">level=logging.INFO</span>)
+<span class="variable">logger</span> = <span class="function">logging.getLogger</span>(<span class="variable">__name__</span>)
+
+<span class="keyword">class</span> <span class="function">VaultClient</span>:
+    <span class="string">"""Secure HashiCorp Vault client for secrets management"""</span>
+    
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">vault_url: str</span>, <span class="variable">vault_token: Optional[str] = None</span>):
+        <span class="variable">self.vault_url</span> = <span class="variable">vault_url</span>
+        <span class="variable">self.client</span> = <span class="function">hvac.Client</span>(<span class="variable">url=vault_url</span>)
+        
+        <span class="comment"># Authenticate using various methods</span>
+        <span class="keyword">if</span> <span class="variable">vault_token</span>:
+            <span class="variable">self.client.token</span> = <span class="variable">vault_token</span>
+        <span class="keyword">elif</span> <span class="function">os.getenv</span>(<span class="string">'VAULT_TOKEN'</span>):
+            <span class="variable">self.client.token</span> = <span class="function">os.getenv</span>(<span class="string">'VAULT_TOKEN'</span>)
+        <span class="keyword">else</span>:
+            <span class="variable">self._authenticate_kubernetes</span>()
+    
+    <span class="keyword">def</span> <span class="function">_authenticate_kubernetes</span>(<span class="variable">self</span>):
+        <span class="string">"""Authenticate using Kubernetes service account"""</span>
+        <span class="keyword">try</span>:
+            <span class="keyword">with</span> <span class="function">open</span>(<span class="string">'/var/run/secrets/kubernetes.io/serviceaccount/token'</span>) <span class="keyword">as</span> <span class="variable">f</span>:
+                <span class="variable">jwt_token</span> = <span class="variable">f.read().strip()</span>
+            
+            <span class="variable">response</span> = <span class="variable">self.client.auth.kubernetes.login</span>(
+                <span class="variable">role=os.getenv</span>(<span class="string">'VAULT_ROLE', 'default'</span>),
+                <span class="variable">jwt=jwt_token</span>
+            )
+            <span class="variable">self.client.token</span> = <span class="variable">response</span>[<span class="string">'auth'</span>][<span class="string">'client_token'</span>]
+            <span class="variable">logger.info</span>(<span class="string">"Successfully authenticated with Kubernetes"</span>)
+        <span class="keyword">except</span> <span class="variable">Exception</span> <span class="keyword">as</span> <span class="variable">e</span>:
+            <span class="variable">logger.error</span>(<span class="function">f</span><span class="string">"Failed to authenticate: {e}"</span>)
+            <span class="keyword">raise</span>
+    
+    <span class="keyword">def</span> <span class="function">get_secret</span>(<span class="variable">self</span>, <span class="variable">path: str</span>, <span class="variable">key: Optional[str] = None</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Retrieve secret from Vault"""</span>
+        <span class="keyword">try</span>:
+            <span class="variable">response</span> = <span class="variable">self.client.secrets.kv.v2.read_secret</span>(<span class="variable">path=path</span>)
+            <span class="variable">secrets</span> = <span class="variable">response</span>[<span class="string">'data'</span>][<span class="string">'data'</span>]
+            
+            <span class="keyword">if</span> <span class="variable">key</span>:
+                <span class="keyword">return</span> <span class="variable">secrets.get</span>(<span class="variable">key</span>)
+            <span class="keyword">return</span> <span class="variable">secrets</span>
+            
+        <span class="keyword">except</span> <span class="variable">Exception</span> <span class="keyword">as</span> <span class="variable">e</span>:
+            <span class="variable">logger.error</span>(<span class="function">f</span><span class="string">"Failed to retrieve secret {path}: {e}"</span>)
+            <span class="keyword">raise</span>
+    
+    <span class="keyword">def</span> <span class="function">create_secret</span>(<span class="variable">self</span>, <span class="variable">path: str</span>, <span class="variable">secrets: Dict</span>):
+        <span class="string">"""Create or update secret in Vault"""</span>
+        <span class="keyword">try</span>:
+            <span class="variable">self.client.secrets.kv.v2.create_or_update_secret</span>(
+                <span class="variable">path=path</span>,
+                <span class="variable">secret=secrets</span>
+            )
+            <span class="variable">logger.info</span>(<span class="function">f</span><span class="string">"Secret created/updated at {path}"</span>)
+        <span class="keyword">except</span> <span class="variable">Exception</span> <span class="keyword">as</span> <span class="variable">e</span>:
+            <span class="variable">logger.error</span>(<span class="function">f</span><span class="string">"Failed to create secret {path}: {e}"</span>)
+            <span class="keyword">raise</span>
+
+<span class="comment"># Usage example</span>
+<span class="keyword">if</span> <span class="variable">__name__</span> == <span class="string">"__main__"</span>:
+    <span class="variable">vault</span> = <span class="function">VaultClient</span>(<span class="string">"https://vault.example.com:8200"</span>)
+    
+    <span class="comment"># Retrieve database credentials</span>
+    <span class="variable">db_secrets</span> = <span class="variable">vault.get_secret</span>(<span class="string">"database/prod"</span>)
+    <span class="function">print</span>(<span class="function">f</span><span class="string">"Database user: {db_secrets.get('username')}"</span>)
+    
+    <span class="comment"># Retrieve API keys</span>
+    <span class="variable">api_key</span> = <span class="variable">vault.get_secret</span>(<span class="string">"api/external"</span>, <span class="string">"key"</span>)
+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitoring Section -->
+        <div class="section" id="monitoring">
+            <h2 class="section-title">📊 Monitoring & Observability</h2>
+            
+            <div class="subsection">
+                <h3>Prometheus & Grafana Configuration</h3>
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># prometheus-config.yml - Security-focused monitoring</span>
+<span class="keyword">global:</span>
+  <span class="keyword">scrape_interval:</span> <span class="string">15s</span>
+  <span class="keyword">evaluation_interval:</span> <span class="string">15s</span>
+
+<span class="keyword">rule_files:</span>
+  - <span class="string">"security-rules.yml"</span>
+  - <span class="string">"performance-rules.yml"</span>
+
+<span class="keyword">alerting:</span>
+  <span class="keyword">alertmanagers:</span>
+    - <span class="keyword">static_configs:</span>
+        - <span class="keyword">targets:</span>
+          - <span class="string">alertmanager:9093</span>
+
+<span class="keyword">scrape_configs:</span>
+  - <span class="keyword">job_name:</span> <span class="string">'kubernetes-pods'</span>
+    <span class="keyword">kubernetes_sd_configs:</span>
+      - <span class="keyword">role:</span> <span class="string">pod</span>
+    <span class="keyword">relabel_configs:</span>
+      - <span class="keyword">source_labels:</span> [<span class="string">__meta_kubernetes_pod_annotation_prometheus_io_scrape</span>]
+        <span class="keyword">action:</span> <span class="string">keep</span>
+        <span class="keyword">regex:</span> <span class="string">true</span>
+      - <span class="keyword">source_labels:</span> [<span class="string">__meta_kubernetes_pod_annotation_prometheus_io_path</span>]
+        <span class="keyword">action:</span> <span class="string">replace</span>
+        <span class="keyword">target_label:</span> <span class="string">__metrics_path__</span>
+        <span class="keyword">regex:</span> <span class="string">(.+)</span>
+
+  - <span class="keyword">job_name:</span> <span class="string">'security-metrics'</span>
+    <span class="keyword">static_configs:</span>
+      - <span class="keyword">targets:</span> [<span class="string">'falco:8765'</span>]
+        <span class="keyword">labels:</span>
+          <span class="keyword">service:</span> <span class="string">'security'</span>
+
+<span class="comment"># Security-specific alert rules</span>
+<span class="keyword">---</span>
+<span class="comment"># security-rules.yml</span>
+<span class="keyword">groups:</span>
+- <span class="keyword">name:</span> <span class="string">security.rules</span>
+  <span class="keyword">rules:</span>
+  - <span class="keyword">alert:</span> <span class="string">HighFailedAuthentications</span>
+    <span class="keyword">expr:</span> <span class="string">rate(authentication_failures_total[5m]) > 10</span>
+    <span class="keyword">for:</span> <span class="string">2m</span>
+    <span class="keyword">labels:</span>
+      <span class="keyword">severity:</span> <span class="string">warning</span>
+    <span class="keyword">annotations:</span>
+      <span class="keyword">summary:</span> <span class="string">"High rate of authentication failures"</span>
+      <span class="keyword">description:</span> <span class="string">"{{ $value }} failed authentications per second"</span>
+
+  - <span class="keyword">alert:</span> <span class="string">SuspiciousNetworkActivity</span>
+    <span class="keyword">expr:</span> <span class="string">rate(network_connections_total[1m]) > 1000</span>
+    <span class="keyword">for:</span> <span class="string">30s</span>
+    <span class="keyword">labels:</span>
+      <span class="keyword">severity:</span> <span class="string">critical</span>
+    <span class="keyword">annotations:</span>
+      <span class="keyword">summary:</span> <span class="string">"Suspicious network activity detected"</span>
+
+  - <span class="keyword">alert:</span> <span class="string">UnauthorizedAPIAccess</span>
+    <span class="keyword">expr:</span> <span class="string">increase(http_requests_total{status=~"401|403"}[5m]) > 50</span>
+    <span class="keyword">for:</span> <span class="string">1m</span>
+    <span class="keyword">labels:</span>
+      <span class="keyword">severity:</span> <span class="string">warning</span>
+    <span class="keyword">annotations:</span>
+      <span class="keyword">summary:</span> <span class="string">"High rate of unauthorized API access attempts"</span>
+</span>
+                </div>
+
+                <div class="description">
+                    This configuration sets up comprehensive security monitoring with Prometheus, including custom alert rules for authentication failures, network anomalies, and API abuse.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Security Event Logging with Falco</h3>
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># falco-rules.yml - Runtime security monitoring</span>
+<span class="keyword">- rule:</span> <span class="string">Detect crypto miners</span>
+  <span class="keyword">desc:</span> <span class="string">Detect cryptocurrency miners</span>
+  <span class="keyword">condition:</span> >
+    <span class="variable">spawned_process</span> <span class="keyword">and</span> (
+    (<span class="variable">proc.name</span> <span class="keyword">in</span> (<span class="string">xmrig, minergate</span>) <span class="keyword">or</span>
+    <span class="variable">proc.cmdline</span> <span class="keyword">contains</span> <span class="string">"stratum+tcp"</span> <span class="keyword">or</span>
+    <span class="variable">proc.cmdline</span> <span class="keyword">contains</span> <span class="string">"pool.minergate.com"</span>)
+    )
+  <span class="keyword">output:</span> <span class="string">"Crypto miner detected (user=%user.name command=%proc.cmdline)"</span>
+  <span class="keyword">priority:</span> <span class="string">CRITICAL</span>
+
+<span class="keyword">- rule:</span> <span class="string">Detect Shell in Container</span>
+  <span class="keyword">desc:</span> <span class="string">Detect shell spawned in container</span>
+  <span class="keyword">condition:</span> >
+    <span class="variable">spawned_process</span> <span class="keyword">and</span>
+    <span class="variable">container</span> <span class="keyword">and</span>
+    <span class="variable">shell_procs</span> <span class="keyword">and</span>
+    <span class="variable">proc.tty</span> != <span class="number">0</span> <span class="keyword">and</span>
+    <span class="variable">container_entrypoint</span>
+  <span class="keyword">output:</span> <span class="string">"Shell spawned in container (user=%user.name container=%container.info shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline)"</span>
+  <span class="keyword">priority:</span> <span class="string">WARNING</span>
+
+<span class="keyword">- rule:</span> <span class="string">Detect Privilege Escalation</span>
+  <span class="keyword">desc:</span> <span class="string">Detect attempts to change user/group ID</span>
+  <span class="keyword">condition:</span> >
+    <span class="variable">spawned_process</span> <span class="keyword">and</span>
+    (<span class="variable">proc.name</span> <span class="keyword">in</span> (<span class="string">su, sudo, usermod, passwd</span>) <span class="keyword">or</span>
+    <span class="variable">proc.cmdline</span> <span class="keyword">contains</span> <span class="string">"chmod +s"</span>)
+  <span class="keyword">output:</span> <span class="string">"Privilege escalation detected (user=%user.name command=%proc.cmdline)"</span>
+  <span class="keyword">priority:</span> <span class="string">HIGH</span>
+
+<span class="keyword">- rule:</span> <span class="string">Detect Sensitive File Access</span>
+  <span class="keyword">desc:</span> <span class="string">Detect access to sensitive files</span>
+  <span class="keyword">condition:</span> >
+    <span class="variable">open_read</span> <span class="keyword">and</span>
+    (<span class="variable">fd.name</span> <span class="keyword">startswith</span> <span class="string">/etc/shadow</span> <span class="keyword">or</span>
+    <span class="variable">fd.name</span> <span class="keyword">startswith</span> <span class="string">/etc/passwd</span> <span class="keyword">or</span>
+    <span class="variable">fd.name</span> <span class="keyword">startswith</span> <span class="string">/etc/ssh/</span>)
+  <span class="keyword">output:</span> <span class="string">"Sensitive file accessed (user=%user.name file=%fd.name command=%proc.cmdline)"</span>
+  <span class="keyword">priority:</span> <span class="string">WARNING</span>
+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kubernetes Security Section -->
+        <div class="section" id="kubernetes">
+            <h2 class="section-title">☸️ Kubernetes Security</h2>
+            
+            <div class="subsection">
+                <h3>Pod Security Standards</h3>
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># secure-pod-template.yml - Security-hardened pod specification</span>
+<span class="keyword">apiVersion:</span> <span class="string">v1</span>
+<span class="keyword">kind:</span> <span class="string">Pod</span>
+<span class="keyword">metadata:</span>
+  <span class="keyword">name:</span> <span class="string">secure-app</span>
+  <span class="keyword">labels:</span>
+    <span class="keyword">app:</span> <span class="string">secure-app</span>
+    <span class="keyword">security.policy:</span> <span class="string">restricted</span>
+<span class="keyword">spec:</span>
+  <span class="comment"># Security: Run as non-root user</span>
+  <span class="keyword">securityContext:</span>
+    <span class="keyword">runAsNonRoot:</span> <span class="keyword">true</span>
+    <span class="keyword">runAsUser:</span> <span class="number">1000</span>
+    <span class="keyword">runAsGroup:</span> <span class="number">1000</span>
+    <span class="keyword">fsGroup:</span> <span class="number">1000</span>
+    <span class="keyword">seccompProfile:</span>
+      <span class="keyword">type:</span> <span class="string">RuntimeDefault</span>
+
+  <span class="keyword">containers:</span>
+  - <span class="keyword">name:</span> <span class="string">app</span>
+    <span class="keyword">image:</span> <span class="string">myapp:v1.0.0</span>
+    <span class="keyword">imagePullPolicy:</span> <span class="string">Always</span>
+    
+    <span class="comment"># Security: Container security context</span>
+    <span class="keyword">securityContext:</span>
+      <span class="keyword">allowPrivilegeEscalation:</span> <span class="keyword">false</span>
+      <span class="keyword">privileged:</span> <span class="keyword">false</span>
+      <span class="keyword">readOnlyRootFilesystem:</span> <span class="keyword">true</span>
+      <span class="keyword">capabilities:</span>
+        <span class="keyword">drop:</span>
+        - <span class="string">ALL</span>
+        <span class="keyword">add:</span>
+        - <span class="string">NET_BIND_SERVICE</span>  <span class="comment"># Only if needed</span>
+
+    <span class="comment"># Resource limits for security</span>
+    <span class="keyword">resources:</span>
+      <span class="keyword">requests:</span>
+        <span class="keyword">memory:</span> <span class="string">"128Mi"</span>
+        <span class="keyword">cpu:</span> <span class="string">"100m"</span>
+      <span class="keyword">limits:</span>
+        <span class="keyword">memory:</span> <span class="string">"512Mi"</span>
+        <span class="keyword">cpu:</span> <span class="string">"500m"</span>
+
+    <span class="comment"># Environment variables from secrets</span>
+    <span class="keyword">env:</span>
+    - <span class="keyword">name:</span> <span class="string">DATABASE_PASSWORD</span>
+      <span class="keyword">valueFrom:</span>
+        <span class="keyword">secretKeyRef:</span>
+          <span class="keyword">name:</span> <span class="string">app-secrets</span>
+          <span class="keyword">key:</span> <span class="string">db-password</span>
+
+    <span class="comment"># Volume mounts</span>
+    <span class="keyword">volumeMounts:</span>
+    - <span class="keyword">name:</span> <span class="string">tmp-volume</span>
+      <span class="keyword">mountPath:</span> <span class="string">/tmp</span>
+    - <span class="keyword">name:</span> <span class="string">cache-volume</span>
+      <span class="keyword">mountPath:</span> <span class="string">/app/cache</span>
+
+    <span class="comment"># Health checks</span>
+    <span class="keyword">livenessProbe:</span>
+      <span class="keyword">httpGet:</span>
+        <span class="keyword">path:</span> <span class="string">/health</span>
+        <span class="keyword">port:</span> <span class="number">8080</span>
+      <span class="keyword">initialDelaySeconds:</span> <span class="number">30</span>
+      <span class="keyword">periodSeconds:</span> <span class="number">10</span>
+</span>
+                </div>
+
+ <!--               <div class="description">    
+                </div> -->
+            </div>  
+  
+            <div class="subsection">
+                <h3>Network Security Policies</h3>
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># network-policy.yml - Micro-segmentation for pods</span>
+<span class="keyword">apiVersion:</span> <span class="string">networking.k8s.io/v1</span>
+<span class="keyword">kind:</span> <span class="string">NetworkPolicy</span>
+<span class="keyword">metadata:</span>
+  <span class="keyword">name:</span> <span class="string">app-network-policy</span>
+  <span class="keyword">namespace:</span> <span class="string">production</span>
+<span class="keyword">spec:</span>
+  <span class="keyword">podSelector:</span>
+    <span class="keyword">matchLabels:</span>
+      <span class="keyword">app:</span> <span class="string">secure-app</span>
+      <span class="keyword">tier:</span> <span class="string">backend</span>
+  
+  <span class="keyword">policyTypes:</span>
+  - <span class="string">Ingress</span>
+  - <span class="string">Egress</span>
+  
+  <span class="comment"># Ingress rules - what can connect to this app</span>
+  <span class="keyword">ingress:</span>
+  - <span class="keyword">from:</span>
+    - <span class="keyword">podSelector:</span>
+        <span class="keyword">matchLabels:</span>
+          <span class="keyword">app:</span> <span class="string">frontend</span>
+    - <span class="keyword">namespaceSelector:</span>
+        <span class="keyword">matchLabels:</span>
+          <span class="keyword">name:</span> <span class="string">ingress-nginx</span>
+    <span class="keyword">ports:</span>
+    - <span class="keyword">protocol:</span> <span class="string">TCP</span>
+      <span class="keyword">port:</span> <span class="number">8080</span>
+  
+  <span class="comment"># Egress rules - what this app can connect to</span>
+  <span class="keyword">egress:</span>
+  - <span class="keyword">to:</span>
+    - <span class="keyword">podSelector:</span>
+        <span class="keyword">matchLabels:</span>
+          <span class="keyword">app:</span> <span class="string">database</span>
+    <span class="keyword">ports:</span>
+    - <span class="keyword">protocol:</span> <span class="string">TCP</span>
+      <span class="keyword">port:</span> <span class="number">5432</span>
+  
+  <span class="comment"># Allow DNS resolution</span>
+  - <span class="keyword">to:</span> []
+    <span class="keyword">ports:</span>
+    - <span class="keyword">protocol:</span> <span class="string">UDP</span>
+      <span class="keyword">port:</span> <span class="number">53</span>
+  
+  <span class="comment"># Allow HTTPS to external APIs (restricted)</span>
+  - <span class="keyword">to:</span>
+    - <span class="keyword">ipBlock:</span>
+        <span class="keyword">cidr:</span> <span class="string">0.0.0.0/0</span>
+        <span class="keyword">except:</span>
+        - <span class="string">169.254.169.254/32</span>  <span class="comment"># Block metadata service</span>
+        - <span class="string">10.0.0.0/8</span>          <span class="comment"># Block internal networks</span>
+    <span class="keyword">ports:</span>
+    - <span class="keyword">protocol:</span> <span class="string">TCP</span>
+      <span class="keyword">port:</span> <span class="number">443</span>
+
+<span class="keyword">---</span>
+<span class="comment"># Default deny-all policy</span>
+<span class="keyword">apiVersion:</span> <span class="string">networking.k8s.io/v1</span>
+<span class="keyword">kind:</span> <span class="string">NetworkPolicy</span>
+<span class="keyword">metadata:</span>
+  <span class="keyword">name:</span> <span class="string">default-deny-all</span>
+  <span class="keyword">namespace:</span> <span class="string">production</span>
+<span class="keyword">spec:</span>
+  <span class="keyword">podSelector:</span> {}
+  <span class="keyword">policyTypes:</span>
+  - <span class="string">Ingress</span>
+  - <span class="string">Egress</span>
+</span>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>RBAC Configuration</h3>
+                <div class="code-block" data-lang="YAML">
+<span class="code"><span class="comment"># rbac.yml - Role-based access control</span>
+<span class="keyword">apiVersion:</span> <span class="string">v1</span>
+<span class="keyword">kind:</span> <span class="string">ServiceAccount</span>
+<span class="keyword">metadata:</span>
+  <span class="keyword">name:</span> <span class="string">secure-app-sa</span>
+  <span class="keyword">namespace:</span> <span class="string">production</span>
+
+<span class="keyword">---</span>
+<span class="keyword">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span>
+<span class="keyword">kind:</span> <span class="string">Role</span>
+<span class="keyword">metadata:</span>
+  <span class="keyword">namespace:</span> <span class="string">production</span>
+  <span class="keyword">name:</span> <span class="string">secure-app-role</span>
+<span class="keyword">rules:</span>
+<span class="comment"># Minimal permissions - only what's needed</span>
+- <span class="keyword">apiGroups:</span> [<span class="string">""</span>]
+  <span class="keyword">resources:</span> [<span class="string">"configmaps"</span>]
+  <span class="keyword">verbs:</span> [<span class="string">"get"</span>, <span class="string">"list"</span>]
+- <span class="keyword">apiGroups:</span> [<span class="string">""</span>]
+  <span class="keyword">resources:</span> [<span class="string">"secrets"</span>]
+  <span class="keyword">verbs:</span> [<span class="string">"get"</span>]
+  <span class="keyword">resourceNames:</span> [<span class="string">"app-secrets"</span>]
+
+<span class="keyword">---</span>
+<span class="keyword">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span>
+<span class="keyword">kind:</span> <span class="string">RoleBinding</span>
+<span class="keyword">metadata:</span>
+  <span class="keyword">name:</span> <span class="string">secure-app-binding</span>
+  <span class="keyword">namespace:</span> <span class="string">production</span>
+<span class="keyword">subjects:</span>
+- <span class="keyword">kind:</span> <span class="string">ServiceAccount</span>
+  <span class="keyword">name:</span> <span class="string">secure-app-sa</span>
+  <span class="keyword">namespace:</span> <span class="string">production</span>
+<span class="keyword">roleRef:</span>
+  <span class="keyword">kind:</span> <span class="string">Role</span>
+  <span class="keyword">name:</span> <span class="string">secure-app-role</span>
+  <span class="keyword">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span>
+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compliance Section -->
+        <div class="section" id="compliance">
+            <h2 class="section-title">📋 Compliance Automation</h2>
+            
+            <div class="subsection">
+                <h3>GDPR Compliance Helper</h3>
+                <div class="code-block" data-lang="Python">
+<span class="code"><span class="comment"># gdpr_helper.py - GDPR compliance automation</span>
+<span class="keyword">from</span> <span class="variable">datetime</span> <span class="keyword">import</span> <span class="variable">datetime, timedelta</span>
+<span class="keyword">from</span> <span class="variable">typing</span> <span class="keyword">import</span> <span class="variable">List, Dict, Optional</span>
+<span class="keyword">import</span> <span class="variable">hashlib</span>
+<span class="keyword">import</span> <span class="variable">json</span>
+<span class="keyword">import</span> <span class="variable">logging</span>
+
+<span class="function">logging.basicConfig</span>(<span class="variable">level=logging.INFO</span>)
+<span class="variable">logger</span> = <span class="function">logging.getLogger</span>(<span class="variable">__name__</span>)
+
+<span class="keyword">class</span> <span class="function">GDPRComplianceHelper</span>:
+    <span class="string">"""Helper class for GDPR compliance automation"""</span>
+    
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">database_connection</span>):
+        <span class="variable">self.db</span> = <span class="variable">database_connection</span>
+        <span class="variable">self.retention_policies</span> = <span class="variable">self._load_retention_policies</span>()
+    
+    <span class="keyword">def</span> <span class="function">_load_retention_policies</span>(<span class="variable">self</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Load data retention policies from configuration"""</span>
+        <span class="keyword">return</span> {
+            <span class="string">'user_data'</span>: <span class="number">2555</span>,      <span class="comment"># 7 years in days</span>
+            <span class="string">'session_logs'</span>: <span class="number">90</span>,    <span class="comment"># 3 months</span>
+            <span class="string">'audit_logs'</span>: <span class="number">2555</span>,    <span class="comment"># 7 years</span>
+            <span class="string">'marketing_data'</span>: <span class="number">730</span>, <span class="comment"># 2 years</span>
+            <span class="string">'analytics'</span>: <span class="number">365</span>       <span class="comment"># 1 year</span>
+        }
+    
+    <span class="keyword">def</span> <span class="function">classify_personal_data</span>(<span class="variable">self</span>, <span class="variable">data: Dict</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Classify data according to GDPR categories"""</span>
+        <span class="variable">personal_data_fields</span> = {
+            <span class="string">'direct_identifiers'</span>: [
+                <span class="string">'email'</span>, <span class="string">'phone'</span>, <span class="string">'name'</span>, <span class="string">'address'</span>, 
+                <span class="string">'social_security'</span>, <span class="string">'passport'</span>, <span class="string">'license'</span>
+            ],
+            <span class="string">'indirect_identifiers'</span>: [
+                <span class="string">'ip_address'</span>, <span class="string">'device_id'</span>, <span class="string">'cookie_id'</span>,
+                <span class="string">'session_id'</span>, <span class="string">'user_agent'</span>
+            ],
+            <span class="string">'sensitive_categories'</span>: [
+                <span class="string">'health_data'</span>, <span class="string">'biometric'</span>, <span class="string">'genetic'</span>,
+                <span class="string">'political_opinion'</span>, <span class="string">'religious_belief'</span>
+            ]
+        }
+        
+        <span class="variable">classification</span> = {<span class="string">'category'</span>: <span class="string">'non_personal'</span>, <span class="string">'sensitivity'</span>: <span class="string">'low'</span>}
+        
+        <span class="keyword">for</span> <span class="variable">category</span>, <span class="variable">fields</span> <span class="keyword">in</span> <span class="variable">personal_data_fields.items</span>():
+            <span class="keyword">for</span> <span class="variable">field</span> <span class="keyword">in</span> <span class="variable">fields</span>:
+                <span class="keyword">if</span> <span class="variable">field</span> <span class="keyword">in</span> <span class="variable">data</span>:
+                    <span class="variable">classification</span>[<span class="string">'category'</span>] = <span class="variable">category</span>
+                    <span class="keyword">if</span> <span class="variable">category</span> == <span class="string">'sensitive_categories'</span>:
+                        <span class="variable">classification</span>[<span class="string">'sensitivity'</span>] = <span class="string">'high'</span>
+                    <span class="keyword">elif</span> <span class="variable">category</span> == <span class="string">'direct_identifiers'</span>:
+                        <span class="variable">classification</span>[<span class="string">'sensitivity'</span>] = <span class="string">'medium'</span>
+        
+        <span class="keyword">return</span> <span class="variable">classification</span>
+    
+    <span class="keyword">def</span> <span class="function">anonymize_data</span>(<span class="variable">self</span>, <span class="variable">data: Dict</span>, <span class="variable">method: str = 'hash'</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Anonymize personal data"""</span>
+        <span class="variable">anonymized</span> = <span class="variable">data.copy</span>()
+        <span class="variable">personal_fields</span> = [<span class="string">'email'</span>, <span class="string">'phone'</span>, <span class="string">'name'</span>, <span class="string">'address'</span>]
+        
+        <span class="keyword">for</span> <span class="variable">field</span> <span class="keyword">in</span> <span class="variable">personal_fields</span>:
+            <span class="keyword">if</span> <span class="variable">field</span> <span class="keyword">in</span> <span class="variable">anonymized</span>:
+                <span class="keyword">if</span> <span class="variable">method</span> == <span class="string">'hash'</span>:
+                    <span class="variable">original_value</span> = <span class="function">str</span>(<span class="variable">anonymized</span>[<span class="variable">field</span>])
+                    <span class="variable">anonymized</span>[<span class="variable">field</span>] = <span class="function">hashlib.sha256</span>(
+                        <span class="variable">original_value.encode</span>()
+                    ).<span class="function">hexdigest</span>()[:<span class="number">8</span>]
+                <span class="keyword">elif</span> <span class="variable">method</span> == <span class="string">'remove'</span>:
+                    <span class="keyword">del</span> <span class="variable">anonymized</span>[<span class="variable">field</span>]
+        
+        <span class="keyword">return</span> <span class="variable">anonymized</span>
+    
+    <span class="keyword">def</span> <span class="function">handle_data_subject_request</span>(<span class="variable">self</span>, <span class="variable">user_id: str</span>, <span class="variable">request_type: str</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Handle GDPR data subject requests (access, rectification, erasure)"""</span>
+        <span class="variable">response</span> = {
+            <span class="string">'request_id'</span>: <span class="function">hashlib.md5</span>(<span class="function">f</span><span class="string">"{user_id}{datetime.now()}"</span>.<span class="function">encode</span>()).<span class="function">hexdigest</span>(),
+            <span class="string">'timestamp'</span>: <span class="variable">datetime.now().isoformat</span>(),
+            <span class="string">'user_id'</span>: <span class="variable">user_id</span>,
+            <span class="string">'request_type'</span>: <span class="variable">request_type</span>,
+            <span class="string">'status'</span>: <span class="string">'processing'</span>
+        }
+        
+        <span class="keyword">try</span>:
+            <span class="keyword">if</span> <span class="variable">request_type</span> == <span class="string">'access'</span>:
+                <span class="variable">response</span>[<span class="string">'data'</span>] = <span class="variable">self._extract_user_data</span>(<span class="variable">user_id</span>)
+            <span class="keyword">elif</span> <span class="variable">request_type</span> == <span class="string">'erasure'</span>:
+                <span class="variable">response</span>[<span class="string">'deleted_records'</span>] = <span class="variable">self._delete_user_data</span>(<span class="variable">user_id</span>)
+            <span class="keyword">elif</span> <span class="variable">request_type</span> == <span class="string">'portability'</span>:
+                <span class="variable">response</span>[<span class="string">'export_file'</span>] = <span class="variable">self._export_user_data</span>(<span class="variable">user_id</span>)
+            
+            <span class="variable">response</span>[<span class="string">'status'</span>] = <span class="string">'completed'</span>
+            <span class="variable">logger.info</span>(<span class="function">f</span><span class="string">"GDPR request {request_type} completed for user {user_id}"</span>)
+            
+        <span class="keyword">except</span> <span class="variable">Exception</span> <span class="keyword">as</span> <span class="variable">e</span>:
+            <span class="variable">response</span>[<span class="string">'status'</span>] = <span class="string">'failed'</span>
+            <span class="variable">response</span>[<span class="string">'error'</span>] = <span class="function">str</span>(<span class="variable">e</span>)
+            <span class="variable">logger.error</span>(<span class="function">f</span><span class="string">"GDPR request failed: {e}"</span>)
+        
+        <span class="comment"># Log for audit trail</span>
+        <span class="variable">self._log_gdpr_request</span>(<span class="variable">response</span>)
+        <span class="keyword">return</span> <span class="variable">response</span>
+    
+    <span class="keyword">def</span> <span class="function">automated_data_retention</span>(<span class="variable">self</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Automatically delete data based on retention policies"""</span>
+        <span class="variable">deletion_report</span> = {<span class="string">'timestamp'</span>: <span class="variable">datetime.now().isoformat</span>(), <span class="string">'deletions'</span>: []}
+        
+        <span class="keyword">for</span> <span class="variable">data_type</span>, <span class="variable">retention_days</span> <span class="keyword">in</span> <span class="variable">self.retention_policies.items</span>():
+            <span class="variable">cutoff_date</span> = <span class="variable">datetime.now</span>() - <span class="function">timedelta</span>(<span class="variable">days=retention_days</span>)
+            
+            <span class="variable">deleted_count</span> = <span class="variable">self._delete_old_data</span>(<span class="variable">data_type</span>, <span class="variable">cutoff_date</span>)
+            
+            <span class="variable">deletion_report</span>[<span class="string">'deletions'</span>].<span class="function">append</span>({
+                <span class="string">'data_type'</span>: <span class="variable">data_type</span>,
+                <span class="string">'cutoff_date'</span>: <span class="variable">cutoff_date.isoformat</span>(),
+                <span class="string">'records_deleted'</span>: <span class="variable">deleted_count</span>
+            })
+            
+            <span class="variable">logger.info</span>(<span class="function">f</span><span class="string">"Deleted {deleted_count} {data_type} records older than {retention_days} days"</span>)
+        
+        <span class="keyword">return</span> <span class="variable">deletion_report</span>
+    
+    <span class="keyword">def</span> <span class="function">_extract_user_data</span>(<span class="variable">self</span>, <span class="variable">user_id: str</span>) -> <span class="variable">Dict</span>:
+        <span class="string">"""Extract all data for a specific user"""</span>
+        <span class="comment"># Implementation would query all tables containing user data</span>
+        <span class="keyword">return</span> {<span class="string">'user_data'</span>: <span class="string">'extracted'</span>}
+    
+    <span class="keyword">def</span> <span class="function">_delete_user_data</span>(<span class="variable">self</span>, <span class="variable">user_id: str</span>) -> <span class="variable">int</span>:
+        <span class="string">"""Delete all data for a specific user"""</span>
+        <span class="comment"># Implementation would delete from all tables</span>
+        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># Number of records deleted</span>
+    
+    <span class="keyword">def</span> <span class="function">_export_user_data</span>(<span class="variable">self</span>, <span class="variable">user_id: str</span>) -> <span class="variable">str</span>:
+        <span class="string">"""Export user data in machine-readable format"""</span>
+        <span class="keyword">return</span> <span class="string">f"export_{user_id}.json"</span>
+    
+    <span class="keyword">def</span> <span class="function">_delete_old_data</span>(<span class="variable">self</span>, <span class="variable">data_type: str</span>, <span class="variable">cutoff_date: datetime</span>) -> <span class="variable">int</span>:
+        <span class="string">"""Delete data older than cutoff date"""</span>
+        <span class="comment"># Implementation would delete old records</span>
+        <span class="keyword">return</span> <span class="number">0</span>
+    
+    <span class="keyword">def</span> <span class="function">_log_gdpr_request</span>(<span class="variable">self</span>, <span class="variable">request_data: Dict</span>):
+        <span class="string">"""Log GDPR request for audit purposes"""</span>
+        <span class="comment"># Implementation would log to audit system</span>
+        <span class="keyword">pass</span>
+
+<span class="comment"># Usage example</span>
+<span class="keyword">if</span> <span class="variable">__name__</span> == <span class="string">"__main__"</span>:
+    <span class="variable">gdpr_helper</span> = <span class="function">GDPRComplianceHelper</span>(<span class="variable">database_connection=None</span>)
+    
+    <span class="comment"># Handle data subject access request</span>
+    <span class="variable">access_response</span> = <span class="variable">gdpr_helper.handle_data_subject_request</span>(
+        <span class="string">"user123"</span>, <span class="string">"access"</span>
+    )
+    
+    <span class="comment"># Run automated data retention</span>
+    <span class="variable">retention_report</span> = <span class="variable">gdpr_helper.automated_data_retention</span>()
+</span>
+                </div>
+            </div>
+        </div>
+            <div class="subsection">
+                <h3>Compliance Frameworks & Standards</h3>
+                <div class="reference-grid">
+                    <div class="reference-card">
+                        <div class="reference-title">NIST Cybersecurity Framework</div>
+                        <a href="https://www.nist.gov/cyberframework" class="reference-link" target="_blank">
+                            https://www.nist.gov/cyberframework
+                        </a>
+                        <p> Deploy with security policies enforced</span>
+          <span class="function">kubectl apply</span> <span class="operator">-f</span> <span class="variable">k8s/security-policies.yaml</span>
+          <span class="function">kubectl apply</span> <span class="operator">-f</span> <span class="variable">k8s/deployment.yaml</span>
+
+      - <span class="keyword">name:</span> <span class="string">DAST Scan</span>
+        <span class="keyword">uses:</span> <span class="string">zaproxy/action-full-scan@v0.7.0</span>
+        <span class="keyword">with:</span>
+          <span class="keyword">target:</span> <span class="string">https://myapp.example.com</span>
+</span>
+                </div>
+                
+</div>
+            </div>
+
+
+        <!-- Tools & Resources Section -->
+        <div class="section" id="tools">
+            <h2 class="section-title">🛠️ Tools & Resources Reference</h2>
+            
+            <div class="subsection">
+                <h3>Essential DevSecOps Tools</h3>
+                <div class="reference-grid">
+                    <div class="reference-card">
+                        <div class="reference-title">Static Application Security Testing (SAST)</div>
+                        <div class="tool-badge">SonarQube</div>
+                        <div class="tool-badge">Checkmarx</div>
+                        <div class="tool-badge">Veracode</div>
+                        <div class="tool-badge">CodeQL</div>
+                        <div class="tool-badge">Semgrep</div>
+                        <p>Comprehensive framework for managing cybersecurity risk across organizations.</p>
+                    </div>
+
+        <div class="reference-card">
+            <div class="reference-title">Dynamic Application Security Testing (DAST)</div>
+            <div class="tool-badge">OWASP ZAP</div>
+            <div class="tool-badge">Burp Suite</div>
+            <div class="tool-badge">Netsparker</div>
+            <div class="tool-badge">Rapid7 AppSpider</div>
+            <p>Test running applications for security vulnerabilities.</p>
+        </div>
+
+        <div class="reference-card">
+            <div class="reference-title">Container Security</div>
+            <div class="tool-badge">Trivy</div>
+            <div class="tool-badge">Aqua Security</div>
+            <div class="tool-badge">Twistlock</div>
+            <div class="tool-badge">Falco</div>
+            <div class="tool-badge">Docker Scout</div>
+            <p>Scan container images and monitor runtime security.</p>
+        </div>
+
+        <div class="reference-card">
+            <div class="reference-title">Infrastructure as Code Security</div>
+            <div class="tool-badge">Terraform</div>
+            <div class="tool-badge">Checkov</div>
+            <div class="tool-badge">Terragrunt</div>
+            <div class="tool-badge">Open Policy Agent</div>
+            <div class="tool-badge">AWS Config</div>
+            <p>Secure infrastructure provisioning and policy enforcement.</p>
+        </div>
+
+        <div class="reference-card">
+            <div class="reference-title">Secrets Management</div>
+            <div class="tool-badge">HashiCorp Vault</div>
+            <div class="tool-badge">AWS Secrets Manager</div>
+            <div class="tool-badge">Azure Key Vault</div>
+            <div class="tool-badge">Google Secret Manager</div>
+            <div class="tool-badge">CyberArk</div>
+            <p>Centralized storage and management of sensitive data.</p>
+        </div>
+
+        <div class="reference-card">
+            <div class="reference-title">Kubernetes Security</div>
+            <div class="tool-badge">Falco</div>
+            <div class="tool-badge">OPA Gatekeeper</div>
+            <div class="tool-badge">Istio</div>
+            <div class="tool-badge">Linkerd</div>
+            <div class="tool-badge">Kube-bench</div>
+            <p>Container orchestration security and policy enforcement.</p>
+        </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">OWASP DevSecOps Guideline</div>
+                        <a href="https://owasp.org/www-project-devsecops-guideline/" class="reference-link" target="_blank">
+                            https://owasp.org/www-project-devsecops-guideline/
+                        </a>
+                        <p>Open-source security practices and implementation guidance.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">CIS Controls</div>
+                        <a href="https://www.cisecurity.org/controls" class="reference-link" target="_blank">
+                            https://www.cisecurity.org/controls
+                        </a>
+                        <p>Prioritized set of cybersecurity best practices and implementation guidelines.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">ISO 27001</div>
+                        <a href="https://www.iso.org/isoiec-27001-information-security.html" class="reference-link" target="_blank">
+                            https://www.iso.org/isoiec-27001-information-security.html
+                        </a>
+                        <p>International standard for information security management systems.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">SOC 2 Compliance</div>
+                        <a href="https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html" class="reference-link" target="_blank">
+                            AICPA SOC 2 Reports
+                        </a>
+                        <p>Auditing standard for service organizations' security, availability, and confidentiality.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">GDPR Compliance</div>
+                        <a href="https://gdpr.eu/" class="reference-link" target="_blank">
+                            https://gdpr.eu/
+                        </a>
+                        <p>European Union's data protection and privacy regulation requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Learning Resources & Communities</h3>
+                <div class="reference-grid">
+                    <div class="reference-card">
+                        <div class="reference-title">DevSecOps Community</div>
+                        <a href="https://www.devsecops.org/" class="reference-link" target="_blank">
+                            https://www.devsecops.org/
+                        </a>
+                        <p>Global community sharing DevSecOps knowledge, tools, and best practices.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">OWASP Top 10</div>
+                        <a href="https://owasp.org/www-project-top-ten/" class="reference-link" target="_blank">
+                            https://owasp.org/www-project-top-ten/
+                        </a>
+                        <p>Most critical web application security risks and mitigation strategies.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">Cloud Security Alliance</div>
+                        <a href="https://cloudsecurityalliance.org/" class="reference-link" target="_blank">
+                            https://cloudsecurityalliance.org/
+                        </a>
+                        <p>Research, education, and certification for cloud security best practices.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">SANS DevSecOps</div>
+                        <a href="https://www.sans.org/cyber-security-courses/dev-sec-ops/" class="reference-link" target="_blank">
+                            https://www.sans.org/cyber-security-courses/dev-sec-ops/
+                        </a>
+                        <p>Professional training and certification programs for DevSecOps practitioners.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">Kubernetes Security</div>
+                        <a href="https://kubernetes.io/docs/concepts/security/" class="reference-link" target="_blank">
+                            https://kubernetes.io/docs/concepts/security/
+                        </a>
+                        <p>Official Kubernetes security documentation and best practices.</p>
+                    </div>
+
+                    <div class="reference-card">
+                        <div class="reference-title">AWS Security Best Practices</div>
+                        <a href="https://aws.amazon.com/architecture/security-identity-compliance/" class="reference-link" target="_blank">
+                            AWS Security Architecture
+                        </a>
+                        <p>Cloud provider security guidelines, reference architectures, and tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Implementation Checklist</h3>
+                <div class="description">
+                    Use this checklist to track your DevSecOps implementation progress:
+                </div>
+                
+                <div class="code-block" data-lang="Markdown">
+<span class="code"><span class="comment"># DevSecOps Implementation Checklist</span>
+
+<span class="comment">## Foundation (Phase 1)</span>
+- [ ] <span class="string">Set up version control with security scanning</span>
+- [ ] <span class="string">Implement basic CI/CD pipeline</span>
+- [ ] <span class="string">Add secret scanning to repositories</span>
+- [ ] <span class="string">Configure SAST tools in development workflow</span>
+- [ ] <span class="string">Establish container image scanning</span>
+- [ ] <span class="string">Implement infrastructure as code</span>
+- [ ] <span class="string">Set up basic monitoring and logging</span>
+- [ ] <span class="string">Define security policies and standards</span>
+- [ ] <span class="string">Train development teams on security practices</span>
+- [ ] <span class="string">Establish incident response procedures</span>
+
+<span class="comment">## Integration (Phase 2)</span>
+- [ ] <span class="string">Integrate DAST into deployment pipeline</span>
+- [ ] <span class="string">Implement automated compliance checking</span>
+- [ ] <span class="string">Deploy secrets management solution</span>
+- [ ] <span class="string">Configure network security policies</span>
+- [ ] <span class="string">Set up runtime security monitoring</span>
+- [ ] <span class="string">Implement policy as code with OPA</span>
+- [ ] <span class="string">Establish security metrics and KPIs</span>
+- [ ] <span class="string">Create automated security testing suites</span>
+- [ ] <span class="string">Deploy service mesh for micro-segmentation</span>
+- [ ] <span class="string">Implement threat modeling processes</span>
+
+<span class="comment">## Optimization (Phase 3)</span>
+- [ ] <span class="string">Advanced threat detection with ML/AI</span>
+- [ ] <span class="string">Automated vulnerability remediation</span>
+- [ ] <span class="string">Zero-trust architecture implementation</span>
+- [ ] <span class="string">Multi-cloud security orchestration</span>
+- [ ] <span class="string">Compliance automation across frameworks</span>
+- [ ] <span class="string">Self-healing security controls</span>
+- [ ] <span class="string">Advanced behavioral analytics</span>
+- [ ] <span class="string">Automated security architecture reviews</span>
+- [ ] <span class="string">Continuous risk assessment</span>
+- [ ] <span class="string">Security chaos engineering</span>
+
+<span class="comment">## Measurement & Improvement</span>
+- [ ] <span class="string">Security metrics dashboard</span>
+- [ ] <span class="string">Mean time to detection (MTTD)</span>
+- [ ] <span class="string">Mean time to response (MTTR)</span>
+- [ ] <span class="string">Vulnerability remediation time</span>
+- [ ] <span class="string">Security test coverage percentage</span>
+- [ ] <span class="string">Compliance audit pass rate</span>
+- [ ] <span class="string">Security training completion rate</span>
+- [ ] <span class="string">False positive rate optimization</span>
+- [ ] <span class="string">Developer productivity impact</span>
+- [ ] <span class="string">Return on security investment (ROSI)</span>
+</span>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Quick Reference Commands</h3>
+                <div class="code-block" data-lang="Bash">
+<span class="code"><span class="comment"># Common DevSecOps commands for quick reference</span>
+
+<span class="comment"># Docker security scanning</span>
+<span class="function">docker run</span> <span class="operator">--rm</span> <span class="operator">-v</span> <span class="variable">/var/run/docker.sock:/var/run/docker.sock</span> <span class="operator">\</span>
+  <span class="variable">aquasec/trivy image</span> <span class="variable">myapp:latest</span>
+
+<span class="comment"># Kubernetes security benchmark</span>
+<span class="function">kubectl apply</span> <span class="operator">-f</span> <span class="variable">https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml</span>
+
+<span class="comment"># Terraform security scan</span>
+<span class="function">checkov</span> <span class="operator">-f</span> <span class="variable">main.tf</span> <span class="operator">--framework</span> <span class="variable">terraform</span>
+
+<span class="comment"># Git secret scanning</span>
+<span class="function">trufflehog git</span> <span class="variable">https://github.com/user/repo.git</span>
+
+<span class="comment"># OWASP ZAP automated scan</span>
+<span class="function">docker run</span> <span class="operator">-t</span> <span class="variable">owasp/zap2docker-stable</span> <span class="variable">zap-baseline.py</span> <span class="operator">\</span>
+  <span class="operator">-t</span> <span class="variable">https://myapp.example.com</span>
+
+<span class="comment"># Vault secret management</span>
+<span class="function">vault kv put</span> <span class="variable">secret/myapp</span> <span class="variable">password="supersecret"</span>
+<span class="function">vault kv get</span> <span class="variable">secret/myapp</span>
+
+<span class="comment"># Falco runtime security monitoring</span>
+<span class="function">kubectl apply</span> <span class="operator">-f</span> <span class="variable">https://raw.githubusercontent.com/falcosecurity/falco/master/examples/k8s_audit_config/falco-k8s-audit.yaml</span>
+
+<span class="comment"># OPA policy testing</span>
+<span class="function">opa test</span> <span class="variable">policies/</span> <span class="variable">tests/</span>
+
+<span class="comment"># Prometheus query for security metrics</span>
+<span class="function">curl</span> <span class="operator">-G</span> <span class="string">'http://prometheus:9090/api/v1/query'</span> <span class="operator">\</span>
+  <span class="operator">--data-urlencode</span> <span class="string">'query=rate(authentication_failures_total[5m])'</span>
+
+<span class="comment"># Generate security report</span>
+<span class="function">docker run</span> <span class="operator">--rm</span> <span class="operator">-v</span> <span class="variable">$(pwd):/workspace</span> <span class="operator">\</span>
+  <span class="variable">returntocorp/semgrep</span> <span class="operator">--config=auto</span> <span class="variable">/workspace</span>
+</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; padding: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 15px;">
+            <h2 style="color: #64b5f6; margin-bottom: 20px;">🎯 Ready to Implement DevSecOps?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                These code snippets and references provide a solid foundation for implementing DevSecOps in your organization.
+                Start with the basics, iterate quickly, and continuously improve your security posture.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <div class="tool-badge" style="padding: 10px 20px; font-size: 1rem;">Start Small</div>
+                <div class="tool-badge" style="padding: 10px 20px; font-size: 1rem;">Automate Everything</div>
+                <div class="tool-badge" style="padding: 10px 20px; font-size: 1rem;">Measure Progress</div>
+                <div class="tool-badge" style="padding: 10px 20px; font-size: 1rem;">Learn Continuously</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Copy code functionality
+        document.querySelectorAll('.code-block').forEach(block => {
+            block.addEventListener('click', function() {
+                const code = this.querySelector('.code').textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    // Visual feedback
+                    const originalBorder = this.style.border;
+                    this.style.border = '2px solid #4ecdc4';
+                    setTimeout(() => {
+                        this.style.border = originalBorder;
+                    }, 500);
+                });
+            });
+        });
+
+        // Highlight current section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.style.background = '';
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.style.background = 'rgba(100, 181, 246, 0.3)';
+                }
+            });
+        });
+
+        // Add interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click-to-copy tooltips
+            const tooltip = document.createElement('div');
+            tooltip.style.cssText = `
+                position: fixed;
+                background: #4ecdc4;
+                color: #000;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 0.8rem;
+                z-index: 1001;
+                display: none;
+                pointer-events: none;
+            `;
+            tooltip.textContent = 'Click to copy code';
+            document.body.appendChild(tooltip);
+
+            document.querySelectorAll('.code-block').forEach(block => {
+                block.addEventListener('mouseenter', function(e) {
+                    tooltip.style.display = 'block';
+                });
+                
+                block.addEventListener('mouseleave', function() {
+                    tooltip.style.display = 'none';
+                });
+                
+                block.addEventListener('mousemove', function(e) {
+                    tooltip.style.left = e.clientX + 10 + 'px';
+                    tooltip.style.top = e.clientY - 30 + 'px';
+                });
+            });
+        });
+    </script>

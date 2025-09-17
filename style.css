@@ -1,11 +1,60 @@
+/* General page styles */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
 }
+
+/* Links */
 a {
     color: #007bff;
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
+}
+
+/* Semi-transparent slide navigation */
+.slide-nav {
+    position: fixed;             /* stays on top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    z-index: 1000;               /* ensure nav is above slides */
+}
+
+/* Slide buttons */
+.nav-button {
+    padding: 6px 10px;
+    font-size: 0.9em;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Back to Landing button */
+.back-landing {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1001; /* above nav */
+}
+.back-landing:hover {
+    background-color: #0056b3;
 }

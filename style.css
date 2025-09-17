@@ -14,25 +14,25 @@ a:hover {
 }
 
 /* Semi-transparent slide navigation */
-.slide-nav {
-    position: fixed;             /* stays on top while scrolling */
+/*.slide-nav {
+    position: fixed;             
     top: 0;
     left: 0;
     width: 100%;
- /*   background: transparent; /* semi-transparent black */
+    background: transparent;
     padding: 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 5px;
-    z-index: 1000;               /* ensure nav is above slides */
-}
+    z-index: 1000;              
+}*/
 
 /* Slide buttons */
-.nav-button {
+/*.nav-button {
     padding: 6px 10px;
     font-size: 0.9em;
-/*    background-color: rgba(255, 255, 255, 0.1);*/
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
     border: none;
     border-radius: 4px;
@@ -40,7 +40,7 @@ a:hover {
 }
 .nav-button:hover {
     background-color: rgba(255, 255, 255, 0.3);
-}
+}*/
 
 /* Back to Landing button */
 .back-landing {
